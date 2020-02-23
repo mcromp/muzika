@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css?family=Coiny|Open+Sans&display=swap");
+
+:root {
+  --bg-main: lightgreen;
+  --bg-sub: rgba(0, 212, 255, 1);
+  --color-highlights: cornsilk;
+  --color-highlights-bright: pink;
+  --text-color-a: black;
+  --text-shadow-main: 1px 2px 1px #000;
+  --box-shadow: 0px 10px 13px -7px #000;
+  --dis-highligh: #aaa;
+  --dis-bg: #666;
+}
+
+.app {
+  height: 100vh;
+  background: linear-gradient(90deg, lightskyblue 0%, rgb(0, 174, 209) 65%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ********************** NAVIGATION BAR ********************** */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+}
+.logo {
+  padding: 0 20px;
+  font: 35px "Coiny", cursive;
+  color: var(--color-highlights);
+  text-shadow: var(--text-shadow-main);
+}
+.linkContainer {
+  padding: 0 20px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  padding: 9px;
+  color: var(--text-color-a);
+  white-space: nowrap;
+  margin-right: 20px;
+  font: 18px "Open Sans", serif;
+}
+.link:hover {
+  color: var(--color-highlights);
+}
+
+.linkSelected {
+  border: 1px solid var(--text-color-a);
+  border-radius: 4%;
+}
+
+/* ********************** GAME WRAPPER ********************** */
+
+.gameWrapper,
+.textContainer {
+  padding: 20px;
+  grid-gap: 20px;
+  width: 90vw;
+  height: 70%;
+  border-radius: 4%;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: var(--box-shadow);
+}
+
+.gameWrapper {
+  display: grid;
+  grid-template-rows: 3fr 3fr 5fr 3fr;
+}
+
+/* **********Status container  */
+.statusContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.statusBoard {
+  flex: 2 0 0;
+}
+
+.statusBoard > span {
+  color: var(--text-color-a);
+  font: 18px "Open Sans", serif;
+}
+.scoreBoard {
+  justify-self: flex-end;
+  flex: 1 0 0;
+}
+
+.scoreBoard > span {
+  padding: 10px;
+  font: 18px "Open Sans", serif;
+  border: 1px solid var(--text-color-a);
+  border-radius: 4%;
+}
+
+/* **********Status container  */
+
+.userBtns {
+  display: block;
+}
+
+.userBtns > button {
+  background-color: var(--bg-sub);
+  border: none;
+  color: var(--color-highlights);
+  padding: 15px 50px;
+  margin: 0 20px;
+  border-radius: 4%;
+  font-size: 25px;
+  cursor: pointer;
+}
+.userBtns > button:hover {
+  background-color: var(--color-highlights);
+  color: var(--text-color-a);
+}
+
+.userBtns > button > button:disabled {
+  background-color: var(--color-highlights-bright);
+}
+/* **************** blocks */
+
+.musicBlockBoard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.musicBlock,
+.musicBlockActive {
+  border-radius: 10%;
+  width: 13%;
+  height: 75px;
+  max-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.musicBlock {
+  color: var(--text-color-a);
+  border: 15px solid var(--color-highlights);
+  box-shadow: var(--box-shadow);
+}
+
+.musicBlock:hover {
+  background-color: var(--bg-sub);
+  border: 15px solid var(--bg-sub);
+  color: var(--color-highlights);
+  cursor: pointer;
+}
+
+.musicBlockActive {
+  border: 15px solid var(--color-highlights-bright);
+}
+.musicBlock > span,
+.musicBlockActive > span {
+  font: bold 30px serif;
+}
+
+.mysteryBlock {
+  color: limegreen;
+}
+
+/* ***************answer board */
+.answerBoard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.answerBoard > button {
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 4px;
+  background-color: var(--bg-sub);
+  color: var(--color-highlights);
+  border-radius: 4%;
+  font: bold 25px "Open Sans", serif;
+}
+
+.answerBoard > button:disabled {
+  background-color: var(--dis-bg);
+  color: var(--dis-highligh);
+  pointer-events: none;
+}
+.answerBoard > button:hover {
+  color: var(--text-color-a);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+/* ******** */
+
+.textContainer > h3 {
+  text-align: left;
+  font: bold 20px "Open Sans", serif;
+}
+
+.textContainer > p {
+  text-align: left;
+  font: 14px "Open Sans", serif;
+}
