@@ -6,7 +6,7 @@ import Blocks from "./Blocks";
 import GuessButtons from "./GuessButtonsContainer";
 import StatusContainer from "./StatusContainer";
 // prettier-ignore
-import { createLoop, createSingleLoop, loadChords, loadSingleChord } from "./loadLoop";
+import { createLoop, createSingleLoop, loadChords, loadSingleChord } from "./loadMusicLoopData";
 
 const GameContainer = () => {
   // prettier-ignore
