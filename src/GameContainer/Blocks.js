@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 
 const BlockMusical = ({ measure, number, handleBlockClick, children }) => {
+  console.log(number);
   let classNameM = "";
   number === 5 && children !== "???" && (classNameM = "mysteryBlock");
   return (

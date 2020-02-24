@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Coiny|Open+Sans&display=swap");
 
 :root {
-  --bg-main: lightgreen;
   --bg-sub: rgba(0, 212, 255, 1);
   --color-highlights: cornsilk;
   --color-highlights-bright: pink;
   --text-color-a: black;
+  --text-correct: limegreen;
   --text-shadow-main: 1px 2px 1px #000;
   --box-shadow: 0px 10px 13px -7px #000;
   --dis-highligh: #aaa;
@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-/* ********************** NAVIGATION BAR ********************** */
+/* NAVIGATION BAR */
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -56,7 +56,7 @@
   border-radius: 4%;
 }
 
-/* ********************** GAME WRAPPER ********************** */
+/* GAME CONTAINER */
 
 .gameWrapper,
 .textContainer {
@@ -74,7 +74,7 @@
   grid-template-rows: 3fr 3fr 5fr 3fr;
 }
 
-/* **********Status container  */
+/* STATUS CONTAINER  */
 .statusContainer {
   display: flex;
   flex-wrap: nowrap;
@@ -102,7 +102,7 @@
   border-radius: 4%;
 }
 
-/* **********Status container  */
+/* BTNS */
 
 .userBtns {
   display: block;
@@ -126,7 +126,7 @@
 .userBtns > button > button:disabled {
   background-color: var(--color-highlights-bright);
 }
-/* **************** blocks */
+/*  MUSICAL BLOCKS */
 
 .musicBlockBoard {
   display: flex;
@@ -168,10 +168,10 @@
 }
 
 .mysteryBlock {
-  color: limegreen;
+  color: var(--text-correct);
 }
 
-/* ***************answer board */
+/* ANSWER BOARD */
 .answerBoard {
   display: flex;
   flex-wrap: wrap;
@@ -195,9 +195,9 @@
 }
 .answerBoard > button:hover {
   color: var(--text-color-a);
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: var(--color-highlights);
 }
-/* ******** */
+/* TEXT CONTAINER */
 
 .textContainer > h3 {
   text-align: left;

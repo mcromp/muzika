@@ -35,7 +35,7 @@ const GameContainer = () => {
     );
   }, []);
 
-  //Inital useEffect
+  //useEffect to initialize game
   useEffect(() => {
     newKey();
     setTimeout(() => {
@@ -65,7 +65,7 @@ const GameContainer = () => {
     });
   };
 
-  const correct = () => {
+  const handleCorrect = () => {
     setDisplayText("Correct!");
     setCorrectRef(true);
     start();
@@ -83,7 +83,7 @@ const GameContainer = () => {
     play();
   };
 
-  const incorrect = data => {
+  const handleIncorrect = data => {
     setDisplayText(`${data.name} is incorrect`);
     setupScoreBoard(0);
     loadSingleChord(data.note);
@@ -132,10 +132,10 @@ const GameContainer = () => {
   const handleGuessClick = (data, playing) => {
     if (!playing) {
       if (data.correct) {
-        correct(data);
+        handleCorrect(data);
         setMeasure(0);
       } else {
-        incorrect(data);
+        handleIncorrect(data);
         setDegreeBtnData(prevState => {
           let updatedState = [...prevState];
           updatedState.map(deg => {

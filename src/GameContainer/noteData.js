@@ -12,6 +12,7 @@ const toneGen = () => {
 
 let tones = toneGen();
 
+//Generates 'random' mystery note
 const randNoteGen = root => {
   let rN = diceRoll(11);
   let randNote = tones[root + rN + 36];
@@ -23,12 +24,13 @@ const randNoteGen = root => {
   };
 };
 
-const chordProgGen = (rtScale, chdProgForm) => {
+const chordProgressionGen = (rtScale, chdProgForm) => {
   return chdProgForm.map(chordRoot => {
     return chordGen(chordRoot, rtScale);
   });
 };
 
+//Generates a chord with random voicing, for a variety of voice leadings
 const chordGen = (root, rtScale) => {
   let chordInv = diceRoll(3);
   let chord = [];
@@ -51,7 +53,7 @@ const scaleGen = (root, s, tones) => {
   return generatedScale;
 };
 
-const setupChordDeg = (root, chordDegreeFormula) => {
+const setupChordDegree = (root, chordDegreeFormula) => {
   return chordDegreeFormula.map((chordDeg, i) => {
     return {
       degree: chordDeg,
@@ -63,10 +65,10 @@ const setupChordDeg = (root, chordDegreeFormula) => {
 export const noteData = () => {
   let root = diceRoll(11);
   let scale = scaleGen(root, scaleFormula.major, tones);
-  let chords = chordProgGen(scale, chordProgFormula);
+  let chords = chordProgressionGen(scale, chordProgressionFormula);
   let randNote = randNoteGen(root);
-  let chordProgression = chordProgFormula;
-  let chordDeg = setupChordDeg(root, chordDegreeFormula);
+  let chordProgression = chordProgressionFormula;
+  let chordDeg = setupChordDegree(root, chordDegreeFormula);
   return {
     root: tones[root],
     scale,
@@ -81,14 +83,9 @@ const diceRoll = n => {
   return Math.floor(Math.random() * n);
 };
 
-const scaleFormula = {
-  major: [0, 2, 2, 1, 2, 2, 2],
-  dorian: [0, 2, 1, 2, 2, 2, 1, 2],
-  minor: [0, 2, 1, 2, 1, 2, 2],
-  harmonicMinor: [0, 2, 1, 2, 2, 1, 2]
-};
+const scaleFormula = { major: [0, 2, 2, 1, 2, 2, 2] };
 
-const chordProgFormula = [0, 3, 4, 0];
+const chordProgressionFormula = [0, 3, 4, 0];
 
 const chordFormula = [-3, 0, 2, 4, 7];
 
