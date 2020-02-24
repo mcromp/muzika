@@ -1,9 +1,9 @@
 import React from "react";
 
-const StatusBoard = () => {
+const StatusBoard = ({ displayText }) => {
   return (
     <div className="statusBoard">
-      <span> Add display Text to this</span>
+      <span> {displayText} </span>
     </div>
   );
 };
@@ -17,10 +17,10 @@ const ScoreBoard = ({ scoreBoard }) => {
   );
 };
 
-const StatusContainer = ({ scoreBoard }) => {
+const StatusContainer = ({ scoreBoard, displayText }) => {
   return (
     <div className="statusContainer">
-      <StatusBoard />
+      <StatusBoard displayText={displayText} />
       <ScoreBoard scoreBoard={scoreBoard} />
     </div>
   );
