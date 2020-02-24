@@ -16,17 +16,13 @@ const GameContainer = () => {
   const [playing, setPlaying] = useState(true);
   const [questionBlock, setQuestionBlock] = useState("???");
   const [displayText, setDisplayText] = useState(
-    "Game Initiated, Guess a degree"
+    "Game Initiated: Click 'PLAY' to play then guess a degree"
   );
   const musicData = useRef({});
   const correctRef = useRef(false);
 
   Tone.Transport.timeSignature = [3, 4];
   Tone.Transport.bpm.value = 400;
-
-  useEffect(() => {
-    console.log(displayText);
-  }, [displayText]);
 
   //useCallback invoked to prevent infinite looping from intial useEffect
   const newKey = useCallback(() => {
@@ -88,7 +84,7 @@ const GameContainer = () => {
   };
 
   const incorrect = data => {
-    setDisplayText(`${data.note} is incorrect`);
+    setDisplayText(`${data.name} is incorrect`);
     setupScoreBoard(0);
     loadSingleChord(data.note);
     play();

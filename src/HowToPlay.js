@@ -2,9 +2,9 @@ import React from "react";
 
 const HowToPlay = () => (
   <div className="textContainer">
-    <h3>What is MusiKa?</h3>
+    <h3>What is MuziKa?</h3>
     <p>
-      MusiKa! is an ear-training program designed to help improve the player's
+      MuziKa! is an ear-training program designed to help improve the player's
       harmonic comprehension.
     </p>
     <h3>Objective</h3>
