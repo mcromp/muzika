@@ -3,7 +3,7 @@ import "../App.css";
 import Tone from "tone";
 import { noteData } from "./noteData";
 import Blocks from "./Blocks";
-import GuessButtons, { setupGuessButtons } from "./GuessButtonsContainer";
+import GuessButtons from "./GuessButtonsContainer";
 import StatusContainer from "./StatusContainer";
 // prettier-ignore
 import { createLoop, createSingleLoop, loadChords, loadSingleChord } from "./loadLoop";
@@ -65,6 +65,19 @@ const GameContainer = () => {
     });
   };
 
+  const setupGuessButtons = (data, answer, setDegreeBtnData) => {
+    let degreeArr = data.map((name, i) => {
+      let correct = answer === name.degree;
+      return {
+        name: name.degree,
+        correct,
+        clicked: "false",
+        note: name.degreeNote
+      };
+    });
+    setDegreeBtnData(degreeArr);
+  };
+
   const handleCorrect = () => {
     setDisplayText("Correct!");
     setCorrectRef(true);
@@ -115,14 +128,14 @@ const GameContainer = () => {
     Tone.Transport.start(time);
   };
 
-  const handleBlockClick = n => {
+  const handleBlockClick = number => {
     if (!playing) {
       Tone.Transport.cancel();
-      setMeasure(n);
+      setMeasure(number);
       let chord = [];
-      n !== 5
-        ? (chord = musicData.chords[n])
-        : (chord = [musicData.randNote.randNote]);
+      number !== 5
+        ? (chord = musicData.current.chords[number])
+        : (chord = [musicData.current.randNote.randNote]);
       createSingleLoop(setMeasure);
       loadSingleChord(chord);
       play();

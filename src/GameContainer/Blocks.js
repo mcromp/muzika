@@ -2,7 +2,6 @@ import React from "react";
 import "../App.css";
 
 const BlockMusical = ({ measure, number, handleBlockClick, children }) => {
-  console.log(number);
   let classNameM = "";
   number === 5 && children !== "???" && (classNameM = "mysteryBlock");
   return (
@@ -21,14 +20,14 @@ const BlockEmpty = () => {
 
 const Blocks = ({ measure, handleBlockClick, questionBlock }) => {
   // prettier-ignore
-  const displayNames = ["I", "IV", "V", "I", 1, "???"]
+  const displayNames = ["I", "IV", "V", "I", 0, "???"]
 
   return displayNames.map((blockname, i) => {
     let name = blockname;
     if (blockname === "???") {
       name = questionBlock;
     }
-    if (blockname === 1) {
+    if (!blockname) {
       return <BlockEmpty key={i} />;
     }
     return (
