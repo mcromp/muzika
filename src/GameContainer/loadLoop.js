@@ -135,12 +135,7 @@ export const createLoop = (
         if (beat === 7) {
           setMeasure("off");
           loop.dispose();
-          if (correctRef.current) {
-            console.log("correct Ref play");
-            playAfterCorrect();
-          } else {
-            setPlaying(false);
-          }
+          correctRef.current ? playAfterCorrect() : setPlaying(false);
         }
       }, time);
     },

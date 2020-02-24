@@ -17,7 +17,6 @@ const GameContainer = () => {
   const [questionBlock, setQuestionBlock] = useState("???");
   const musicData = useRef({});
   const correctRef = useRef(false);
-  console.log("whuddup");
 
   Tone.Transport.timeSignature = [3, 4];
   Tone.Transport.bpm.value = 400;
@@ -75,7 +74,6 @@ const GameContainer = () => {
   const playAfterCorrect = () => {
     setQuestionBlock("???");
     setCorrectRef(false);
-    console.log(correctRef.current);
     start();
     play();
   };
