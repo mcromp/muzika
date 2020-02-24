@@ -16,7 +16,7 @@ const GameContainer = () => {
   const [playing, setPlaying] = useState(true);
   const [questionBlock, setQuestionBlock] = useState("???");
   const [displayText, setDisplayText] = useState(
-    "Game Initiated: Click 'PLAY' to play then guess a degree"
+    "Game Initiated: Click 'PLAY' hear the musical progression. Then guess a degree"
   );
   const musicData = useRef({});
   const correctRef = useRef(false);
