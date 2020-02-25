@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./NavBar";
 import GameContainer from "./GameContainer";
@@ -9,14 +9,14 @@ import HowToPlay from "./HowToPlay";
 const App = () => {
   return (
     <div className="app">
-      <Router basename="/">
+      <HashRouter basename="/">
         <NavBar />
         <Switch>
           <Route exact path="/" component={GameContainer} />
           <Route path="/about" component={About} />
           <Route path="/howtoplay" component={HowToPlay} />
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 };
