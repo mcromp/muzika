@@ -9,10 +9,10 @@ import HowToPlay from "./HowToPlay";
 const App = () => {
   return (
     <div className="app">
-      <HashRouter basename="/muzika">
+      <HashRouter basename="/">
         <NavBar />
         <Switch>
-          <Route exact path="/muzika" component={GameContainer} />
+          <Route exact path="/" component={GameContainer} />
           <Route path="/about" component={About} />
           <Route path="/howtoplay" component={HowToPlay} />
         </Switch>
