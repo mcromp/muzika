@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1b29b472b8894c71280b575327cc7a2a",
+    "revision": "ee80adee037a0ad5a6830fd14f1c6e0c",
     "url": "/muzika/index.html"
   },
   {
-    "revision": "0a5385fa8c0d855970b1",
+    "revision": "971831d637705dc54070",
     "url": "/muzika/static/css/main.e6e2bdfe.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/muzika/static/js/2.a31ee713.chunk.js.LICENSE"
   },
   {
-    "revision": "0a5385fa8c0d855970b1",
-    "url": "/muzika/static/js/main.21f7a3e6.chunk.js"
+    "revision": "971831d637705dc54070",
+    "url": "/muzika/static/js/main.3a1a33dc.chunk.js"
   },
   {
     "revision": "f9beccf06de17f4efa9c",

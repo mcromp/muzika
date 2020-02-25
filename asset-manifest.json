@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/muzika/static/css/main.e6e2bdfe.chunk.css",
-    "main.js": "/muzika/static/js/main.21f7a3e6.chunk.js",
-    "main.js.map": "/muzika/static/js/main.21f7a3e6.chunk.js.map",
+    "main.js": "/muzika/static/js/main.3a1a33dc.chunk.js",
+    "main.js.map": "/muzika/static/js/main.3a1a33dc.chunk.js.map",
     "runtime-main.js": "/muzika/static/js/runtime-main.e91546fe.js",
     "runtime-main.js.map": "/muzika/static/js/runtime-main.e91546fe.js.map",
     "static/js/2.a31ee713.chunk.js": "/muzika/static/js/2.a31ee713.chunk.js",
     "static/js/2.a31ee713.chunk.js.map": "/muzika/static/js/2.a31ee713.chunk.js.map",
     "index.html": "/muzika/index.html",
-    "precache-manifest.bb217a53e33085af7f8135d6987d8b30.js": "/muzika/precache-manifest.bb217a53e33085af7f8135d6987d8b30.js",
+    "precache-manifest.b36fe2469513c14b3c595c156c3f643c.js": "/muzika/precache-manifest.b36fe2469513c14b3c595c156c3f643c.js",
     "service-worker.js": "/muzika/service-worker.js",
     "static/css/main.e6e2bdfe.chunk.css.map": "/muzika/static/css/main.e6e2bdfe.chunk.css.map",
     "static/js/2.a31ee713.chunk.js.LICENSE": "/muzika/static/js/2.a31ee713.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e91546fe.js",
     "static/js/2.a31ee713.chunk.js",
     "static/css/main.e6e2bdfe.chunk.css",
-    "static/js/main.21f7a3e6.chunk.js"
+    "static/js/main.3a1a33dc.chunk.js"
   ]
 }
