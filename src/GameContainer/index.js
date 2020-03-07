@@ -129,43 +129,49 @@ const GameContainer = () => {
   };
 
   const handleBlockClick = number => {
-    if (!playing) {
-      Tone.Transport.cancel();
-      setMeasure(number);
-      let chord = [];
-      number !== 5
-        ? (chord = musicData.current.chords[number])
-        : (chord = [musicData.current.randNote.randNote]);
-      createSingleLoop(setMeasure);
-      loadSingleChord(chord);
-      play();
+    if (playing) {
+      return;
     }
+    Tone.Transport.cancel();
+    setMeasure(number);
+    let chord = [];
+    number !== 5
+      ? (chord = musicData.current.chords[number])
+      : (chord = [musicData.current.randNote.randNote]);
+    createSingleLoop(setMeasure);
+    loadSingleChord(chord);
+    play();
+  };
+
+  const disableWrongDegreeBtn = name => {
+    setDegreeBtnData(prevState => {
+      let updatedState = [...prevState];
+      updatedState.map(deg => {
+        if (deg.name === name) {
+          deg.disabled = true;
+        }
+        return deg;
+      });
+      return updatedState;
+    });
   };
 
   const handleGuessClick = (data, playing) => {
-    if (!playing) {
-      if (data.correct) {
-        handleCorrect(data);
-        setMeasure(0);
-      } else {
-        handleIncorrect(data);
-        setDegreeBtnData(prevState => {
-          let updatedState = [...prevState];
-          updatedState.map(deg => {
-            if (deg.name === data.name) {
-              deg.disabled = true;
-            }
-            return deg;
-          });
-          return updatedState;
-        });
-      }
+    if (playing) {
+      return;
+    }
+    if (data.correct) {
+      handleCorrect(data);
+      setMeasure(0);
+    } else {
+      handleIncorrect(data);
+      disableWrongDegreeBtn(data.name);
     }
   };
 
   return (
     <div className="gameWrapper">
-      <StatusContainer scoreBoard={scoreBoard} displayText={displayText} />
+      <StatusContainer {...{ scoreBoard, displayText }} />
       <div className="userBtns">
         <UserButton
           handleClick={() => {
@@ -184,11 +190,7 @@ const GameContainer = () => {
         <Blocks {...{ measure, handleBlockClick, questionBlock }} />
       </div>
       <div className="answerBoard">
-        <GuessButtons
-          data={degreeBtnData}
-          handleGuessClick={handleGuessClick}
-          playing={playing}
-        />
+        <GuessButtons data={degreeBtnData} {...{ handleGuessClick, playing }} />
       </div>
     </div>
   );
