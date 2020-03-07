@@ -14,9 +14,7 @@ const BlockMusical = ({ measure, number, handleBlockClick, children }) => {
   );
 };
 
-const BlockEmpty = () => {
-  return <div></div>;
-};
+const BlockEmpty = () => <div></div>;
 
 const Blocks = ({ measure, handleBlockClick, questionBlock }) => {
   // prettier-ignore
@@ -31,12 +29,7 @@ const Blocks = ({ measure, handleBlockClick, questionBlock }) => {
       return <BlockEmpty key={i} />;
     }
     return (
-      <BlockMusical
-        measure={measure}
-        key={i}
-        number={i}
-        handleBlockClick={handleBlockClick}
-      >
+      <BlockMusical key={i} number={i} {...{ handleBlockClick, measure }}>
         {name}
       </BlockMusical>
     );
