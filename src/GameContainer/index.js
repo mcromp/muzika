@@ -181,11 +181,7 @@ const GameContainer = () => {
         </UserButton>
       </div>
       <div className="musicBlockBoard">
-        <Blocks
-          measure={measure}
-          handleBlockClick={handleBlockClick}
-          questionBlock={questionBlock}
-        />
+        <Blocks {...{ measure, handleBlockClick, questionBlock }} />
       </div>
       <div className="answerBoard">
         <GuessButtons
