@@ -122,7 +122,6 @@ export const createLoop = (
   setMeasure,
   setPlaying,
   correctRef,
-  setCorrectRef,
   playAfterCorrect
 ) => {
   let loop = new Tone.Sequence(
