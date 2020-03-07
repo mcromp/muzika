@@ -1,7 +1,7 @@
 import React from "react";
 
 export const setupGuessButtons = (data, answer, setDegreeBtnData) => {
-  let degreeArr = data.map((name, i) => {
+  let degreeArr = data.map(name => {
     let correct = answer === name.degree;
     return {
       name: name.degree,
@@ -13,33 +13,20 @@ export const setupGuessButtons = (data, answer, setDegreeBtnData) => {
   setDegreeBtnData(degreeArr);
 };
 
-const GuessButtons = ({ data, handleGuessClick, playing }) => {
-  let arr = null;
-  if (data) {
-    arr = data.map((deg, i) => (
-      <GuessButton
-        key={i}
-        deg={deg}
-        handleGuessClick={handleGuessClick}
-        playing={playing}
-      />
-    ));
-  }
-  return arr;
-};
+const GuessButtons = ({ data, handleGuessClick, playing }) =>
+  data.map(deg => (
+    <GuessButton key={deg.name} {...{ deg, handleGuessClick, playing }} />
+  ));
 
-export const GuessButton = ({ deg, handleGuessClick, playing }) => {
-  const dis = deg.disabled || playing;
-  return (
-    <button
-      value={deg.name}
-      disabled={dis}
-      clicked={deg.clicked}
-      onClick={() => handleGuessClick(deg)}
-    >
-      {deg.name}
-    </button>
-  );
-};
+const GuessButton = ({ deg, handleGuessClick, playing }) => (
+  <button
+    value={deg.name}
+    disabled={deg.disabled || playing}
+    clicked={deg.clicked}
+    onClick={() => handleGuessClick(deg)}
+  >
+    {deg.name}
+  </button>
+);
 
 export default GuessButtons;
