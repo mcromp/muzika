@@ -113,13 +113,7 @@ const GameContainer = () => {
   const start = () => {
     Tone.Transport.cancel();
     setMeasure(0);
-    createLoop(
-      setMeasure,
-      setPlaying,
-      correctRef,
-      setCorrectRef,
-      playAfterCorrect
-    );
+    createLoop(setMeasure, setPlaying, correctRef, playAfterCorrect);
     loadChords(musicData.current);
   };
 
