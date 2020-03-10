@@ -1,15 +1,12 @@
 import React from "react";
 
 export const setupGuessButtons = (data, answer, setDegreeBtnData) => {
-  let degreeArr = data.map(name => {
-    let correct = answer === name.degree;
-    return {
-      name: name.degree,
-      correct,
-      clicked: "false",
-      note: name.degreeNote
-    };
-  });
+  let degreeArr = data.map(name => ({
+    name: name.degree,
+    correct: answer === name.degree,
+    clicked: "false",
+    note: name.degreeNote
+  }));
   setDegreeBtnData(degreeArr);
 };
 
