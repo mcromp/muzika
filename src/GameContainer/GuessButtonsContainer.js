@@ -1,14 +1,14 @@
 import React from "react";
 
-const GuessButtons = ({ data, handleGuessClick, playing }) =>
+const GuessButtons = ({ data, handleGuessClick, isPlaying }) =>
   data.map(deg => (
-    <GuessButton key={deg.name} {...{ deg, handleGuessClick, playing }} />
+    <GuessButton key={deg.name} {...{ deg, handleGuessClick, isPlaying }} />
   ));
 
-const GuessButton = ({ deg, handleGuessClick, playing }) => (
+const GuessButton = ({ deg, handleGuessClick, isPlaying }) => (
   <button
     value={deg.name}
-    disabled={deg.disabled || playing}
+    disabled={deg.disabled || isPlaying}
     clicked={deg.clicked}
     onClick={() => handleGuessClick(deg)}
   >

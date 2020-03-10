@@ -8,8 +8,8 @@ import StatusContainer from "./StatusContainer";
 // prettier-ignore
 import { createLoop, createSingleLoop, loadChords, loadSingleChord } from "./loadMusicLoopData";
 
-const UserButton = ({ children, handleClick, playing }) => (
-  <button disabled={playing} onClick={handleClick}>
+const UserButton = ({ children, handleClick, isPlaying }) => (
+  <button disabled={isPlaying} onClick={handleClick}>
     {children}
   </button>
 );
@@ -19,7 +19,7 @@ const GameContainer = () => {
   const [scoreBoard, setScoreBoard] = useState({correct: 0, total: 0, percent: "", avgAttempts: 0});
   const [degreeBtnData, setDegreeBtnData] = useState([]);
   const [measure, setMeasure] = useState("off");
-  const [playing, setPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [questionBlock, setQuestionBlock] = useState("???");
   const [displayText, setDisplayText] = useState(
     "Game Initiated: Click 'PLAY' hear the musical progression. Then guess a degree"
@@ -45,7 +45,7 @@ const GameContainer = () => {
   useEffect(() => {
     newKey();
     setTimeout(() => {
-      setPlaying(false);
+      setIsPlaying(false);
     }, 900);
   }, [newKey]);
 
@@ -116,7 +116,7 @@ const GameContainer = () => {
   const start = () => {
     Tone.Transport.cancel();
     setMeasure(0);
-    createLoop(setMeasure, setPlaying, correctRef, playAfterCorrect);
+    createLoop(setMeasure, setIsPlaying, correctRef, playAfterCorrect);
     loadChords(musicData.current);
   };
 
@@ -126,7 +126,7 @@ const GameContainer = () => {
   };
 
   const handleBlockClick = number => {
-    if (playing) {
+    if (isPlaying) {
       return;
     }
     Tone.Transport.cancel();
@@ -153,8 +153,8 @@ const GameContainer = () => {
     });
   };
 
-  const handleGuessClick = (data, playing) => {
-    if (playing) {
+  const handleGuessClick = (data, isPlaying) => {
+    if (isPlaying) {
       return;
     }
     if (data.correct) {
@@ -175,11 +175,11 @@ const GameContainer = () => {
             start();
             play();
           }}
-          playing={playing}
+          isPlaying={isPlaying}
         >
           PLAY
         </UserButton>
-        <UserButton handleClick={handleChangeKey} playing={playing}>
+        <UserButton handleClick={handleChangeKey} isPlaying={isPlaying}>
           KEY CHANGE
         </UserButton>
       </div>
@@ -187,7 +187,10 @@ const GameContainer = () => {
         <Blocks {...{ measure, handleBlockClick, questionBlock }} />
       </div>
       <div className="answerBoard">
-        <GuessButtons data={degreeBtnData} {...{ handleGuessClick, playing }} />
+        <GuessButtons
+          data={degreeBtnData}
+          {...{ handleGuessClick, isPlaying }}
+        />
       </div>
     </div>
   );
