@@ -49,27 +49,24 @@ const chordGen = (root, rtScale) => {
   return chord.map(note => rtScale[note + 14]);
 };
 
-const scaleGen = (root, s, tones) => {
+const scaleGen = (root, scaleIntervals, tones) => {
   let generatedScale = [];
-  for (let i = 1, x = root; i < 6; i++) {
-    s.map(scalenote => {
-      let tempScaleArr = generatedScale.push(tones[scalenote + x]);
-      x += scalenote;
-      return tempScaleArr;
+  //starting at root, tone 'walks' up scale for 6 octaves
+  for (let i = 1, tone = root; i < 6; i++) {
+    scaleIntervals.forEach(interval => {
+      tone += interval;
+      generatedScale.push(tones[tone]);
     });
-    x = root + i * 12;
+    tone++;
   }
   return generatedScale;
 };
 
-const setupChordDegree = (root, chordDegreeFormula) => {
-  return chordDegreeFormula.map((chordDeg, i) => {
-    return {
-      degree: chordDeg,
-      degreeNote: tones[root + i + 36]
-    };
-  });
-};
+const setupChordDegree = (root, chordDegreeFormula) =>
+  chordDegreeFormula.map((chordDeg, i) => ({
+    degree: chordDeg,
+    degreeNote: tones[root + i + 36]
+  }));
 
 const noteData = () => {
   let root = diceRoll(11);
