@@ -3,6 +3,7 @@ const chordProgressionFormula = [0, 3, 4, 0];
 const chordFormula = [-3, 0, 2, 4, 7];
 // prettier-ignore
 const chordDegreeFormula = ["R/8", "♭9", "9", "♭10", "10", "11", "o12/TT", "12", "♭6", "6", "♭7", "7"];
+
 //Generates the data of a 6 octave musical 'keyboard' readable  by Tone.js
 const toneGen = () => {
   //prettier-ignore
@@ -25,13 +26,13 @@ const diceRoll = n => {
 
 //Generates 'random' mystery note
 const randNoteGen = root => {
-  let rN = diceRoll(11);
-  let randNote = tones[root + rN + 36];
-  let rNoteDegree = chordDegreeFormula[rN];
+  let noteSeed = diceRoll(11);
+  let note = tones[root + noteSeed + 36];
+  let chordDegree = chordDegreeFormula[noteSeed];
 
   return {
-    randNote,
-    rNoteDegree
+    note,
+    chordDegree
   };
 };
 
