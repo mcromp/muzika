@@ -2,11 +2,13 @@
 const toneGen = () => {
   //prettier-ignore
   let musicalNotes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+  let octaves = [1, 2, 3, 4, 5, 6, 7];
   let tones = [];
 
-  for (let i = 1; i < 7; i++) {
-    musicalNotes.map(note => tones.push(`${note}${i}`));
-  }
+  octaves.forEach(octave =>
+    musicalNotes.forEach(note => tones.push(`${note}${octave}`))
+  );
+
   return tones;
 };
 
@@ -24,11 +26,8 @@ const randNoteGen = root => {
   };
 };
 
-const chordProgressionGen = (rtScale, chdProgForm) => {
-  return chdProgForm.map(chordRoot => {
-    return chordGen(chordRoot, rtScale);
-  });
-};
+const chordProgressionGen = (rtScale, chdProgForm) =>
+  chdProgForm.map(chordRoot => chordGen(chordRoot, rtScale));
 
 //Generates a chord with random voicing, for a variety of voice leadings
 const chordGen = (root, rtScale) => {
