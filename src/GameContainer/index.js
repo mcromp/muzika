@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import "../App.css";
 import Tone from "tone";
-import { noteData } from "./noteData";
+import noteData from "./noteData";
 import Blocks from "./Blocks";
 import GuessButtons from "./GuessButtonsContainer";
 import StatusContainer from "./StatusContainer";

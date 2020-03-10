@@ -1,3 +1,8 @@
+const scaleFormula = { major: [0, 2, 2, 1, 2, 2, 2] };
+const chordProgressionFormula = [0, 3, 4, 0];
+const chordFormula = [-3, 0, 2, 4, 7];
+// prettier-ignore
+const chordDegreeFormula = ["R/8", "♭9", "9", "♭10", "10", "11", "o12/TT", "12", "♭6", "6", "♭7", "7"];
 //Generates the data of a 6 octave musical 'keyboard' readable  by Tone.js
 const toneGen = () => {
   //prettier-ignore
@@ -13,6 +18,10 @@ const toneGen = () => {
 };
 
 let tones = toneGen();
+
+const diceRoll = n => {
+  return Math.floor(Math.random() * n);
+};
 
 //Generates 'random' mystery note
 const randNoteGen = root => {
@@ -61,7 +70,7 @@ const setupChordDegree = (root, chordDegreeFormula) => {
   });
 };
 
-export const noteData = () => {
+const noteData = () => {
   let root = diceRoll(11);
   let scale = scaleGen(root, scaleFormula.major, tones);
   let chords = chordProgressionGen(scale, chordProgressionFormula);
@@ -78,15 +87,4 @@ export const noteData = () => {
   };
 };
 
-const diceRoll = n => {
-  return Math.floor(Math.random() * n);
-};
-
-const scaleFormula = { major: [0, 2, 2, 1, 2, 2, 2] };
-
-const chordProgressionFormula = [0, 3, 4, 0];
-
-const chordFormula = [-3, 0, 2, 4, 7];
-
-// prettier-ignore
-const chordDegreeFormula = ["R/8", "♭9", "9", "♭10", "10", "11", "o12/TT", "12", "♭6", "6", "♭7", "7"];
+export default noteData;
