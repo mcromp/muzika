@@ -6,7 +6,7 @@ const DISPLAY_NAMES = ["I", "IV", "V", "I", null, "???"];
 
 const BlockMusical = ({ measure, number, handleBlockClick, name }) => {
   let classNameM = "";
-  number === 5 && name !== "???" && (classNameM = "mysteryBlock");
+  number === 5 && name !== "???" ? (classNameM = "mysteryBlock") : "";
   return (
     <div
       onClick={() => handleBlockClick(number)}
