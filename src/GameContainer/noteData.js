@@ -25,7 +25,7 @@ const diceRoll = n => {
 };
 
 //Generates 'random' mystery note
-const randNoteGen = root => {
+const mysteryNoteGen = root => {
   let noteSeed = diceRoll(11);
   let note = tones[root + noteSeed + 36];
   let chordDegree = chordDegreeFormula[noteSeed];
@@ -72,7 +72,7 @@ const noteData = () => {
   let root = diceRoll(11);
   let scale = scaleGen(root, scaleFormula.major, tones);
   let chords = chordProgressionGen(scale, chordProgressionFormula);
-  let randNote = randNoteGen(root);
+  let mysteryNote = mysteryNoteGen(root);
   let chordProgression = chordProgressionFormula;
   let chordDeg = setupChordDegree(root, chordDegreeFormula);
   return {
@@ -80,7 +80,7 @@ const noteData = () => {
     scale,
     chords,
     chordProgression,
-    randNote,
+    mysteryNote,
     chordDeg
   };
 };

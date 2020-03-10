@@ -95,7 +95,7 @@ const playbackSynth = new Tone.PolySynth(3, Tone.Synth, {
 export const loadChords = padData => {
   let noteLength = "2n";
   Tone.Transport.scheduleOnce(time => {
-    guessSynth.triggerAttackRelease(padData.randNote.note, noteLength, time);
+    guessSynth.triggerAttackRelease(padData.mysteryNote.note, noteLength, time);
   }, "5:0");
 
   padData.chords.map((chord, i) =>

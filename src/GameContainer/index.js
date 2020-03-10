@@ -8,7 +8,6 @@ import StatusContainer from "./StatusContainer";
 // prettier-ignore
 import { createLoop, createSingleLoop, loadChords, loadSingleChord } from "./loadMusicLoopData";
 
-console.log(noteData);
 const UserButton = ({ children, handleClick, isPlaying }) => (
   <button disabled={isPlaying} onClick={handleClick}>
     {children}
@@ -34,10 +33,11 @@ const GameContainer = () => {
   //useCallback invoked to prevent infinite looping from intial useEffect
   const newKey = useCallback(() => {
     let data = noteData();
+    console.log(data);
     setMusicRef(data);
     setupGuessButtons(
       data.chordDeg,
-      data.randNote.chordDegree,
+      data.mysteryNote.chordDegree,
       setDegreeBtnData
     );
   }, []);
@@ -87,7 +87,7 @@ const GameContainer = () => {
     setCorrectRef(true);
     start();
     play();
-    setQuestionBlock(musicData.current.randNote.chordDegree);
+    setQuestionBlock(musicData.current.mysteryNote.chordDegree);
     setupScoreBoard(1);
     newKey();
   };
@@ -135,7 +135,7 @@ const GameContainer = () => {
     let chord = [];
     number !== 5
       ? (chord = musicData.current.chords[number])
-      : (chord = [musicData.current.randNote.note]);
+      : (chord = [musicData.current.mysteryNote.note]);
     createSingleLoop(setMeasure);
     loadSingleChord(chord);
     play();
