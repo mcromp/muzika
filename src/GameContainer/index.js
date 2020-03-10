@@ -8,6 +8,12 @@ import StatusContainer from "./StatusContainer";
 // prettier-ignore
 import { createLoop, createSingleLoop, loadChords, loadSingleChord } from "./loadMusicLoopData";
 
+const UserButton = ({ children, handleClick, playing }) => (
+  <button disabled={playing} onClick={handleClick}>
+    {children}
+  </button>
+);
+
 const GameContainer = () => {
   // prettier-ignore
   const [scoreBoard, setScoreBoard] = useState({correct: 0, total: 0, percent: "", avgAttempts: 0});
@@ -66,15 +72,12 @@ const GameContainer = () => {
   };
 
   const setupGuessButtons = (data, answer, setDegreeBtnData) => {
-    let degreeArr = data.map((name, i) => {
-      let correct = answer === name.degree;
-      return {
-        name: name.degree,
-        correct,
-        clicked: "false",
-        note: name.degreeNote
-      };
-    });
+    let degreeArr = data.map(name => ({
+      name: name.degree,
+      correct: answer === name.degree,
+      clicked: "false",
+      note: name.degreeNote
+    }));
     setDegreeBtnData(degreeArr);
   };
 
@@ -191,9 +194,3 @@ const GameContainer = () => {
 };
 
 export default GameContainer;
-
-const UserButton = ({ children, handleClick, playing }) => (
-  <button disabled={playing} onClick={handleClick}>
-    {children}
-  </button>
-);
