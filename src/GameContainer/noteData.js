@@ -76,7 +76,6 @@ const noteData = () => {
   let chordProgression = chordProgressionFormula;
   let chordDeg = setupChordDegree(root, chordDegreeFormula);
   return {
-    root: tones[root],
     scale,
     chords,
     chordProgression,
