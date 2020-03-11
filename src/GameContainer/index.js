@@ -85,8 +85,7 @@ const GameContainer = () => {
   const handleCorrect = () => {
     setDisplayText("Correct!");
     setCorrectRef(true);
-    start();
-    play();
+    loadAndPlayTransport();
     setQuestionBlock(musicData.current.mysteryNote.chordDegree);
     setupScoreBoard(1);
     newKey();
@@ -96,32 +95,31 @@ const GameContainer = () => {
     setDisplayText("New Key, Guess a degree");
     setQuestionBlock("???");
     setCorrectRef(false);
-    start();
-    play();
+    loadAndPlayTransport();
   };
 
   const handleIncorrect = data => {
     setDisplayText(`${data.name} is incorrect`);
     setupScoreBoard(0);
     loadSingleChord(data.note);
-    play();
+    playTransport();
   };
 
   const handleChangeKey = () => {
     setDisplayText("Key Changed");
     newKey();
-    start();
-    play();
+    loadAndPlayTransport();
   };
 
-  const start = () => {
+  const loadAndPlayTransport = () => {
     Tone.Transport.cancel();
     setMeasure(0);
     createLoop(setMeasure, setIsPlaying, correctRef, playAfterCorrect);
     loadChords(musicData.current);
+    playTransport();
   };
 
-  const play = (time = "+0.2") => {
+  const playTransport = (time = "+0.2") => {
     Tone.Transport.stop();
     Tone.Transport.start(time);
   };
@@ -138,7 +136,7 @@ const GameContainer = () => {
       : (chord = [musicData.current.mysteryNote.note]);
     createSingleLoop(setMeasure);
     loadSingleChord(chord);
-    play();
+    playTransport();
   };
 
   const disableWrongDegreeBtn = name => {
@@ -171,13 +169,7 @@ const GameContainer = () => {
     <div className="gameWrapper">
       <StatusContainer {...{ scoreBoard, displayText }} />
       <div className="userBtns">
-        <UserButton
-          handleClick={() => {
-            start();
-            play();
-          }}
-          isPlaying={isPlaying}
-        >
+        <UserButton handleClick={loadAndPlayTransport} isPlaying={isPlaying}>
           PLAY
         </UserButton>
         <UserButton handleClick={handleChangeKey} isPlaying={isPlaying}>
