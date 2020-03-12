@@ -32,12 +32,11 @@ const GameContainer = () => {
 
   //useCallback invoked to prevent infinite looping from intial useEffect
   const newKey = useCallback(() => {
-    let data = noteData();
-    console.log(data);
-    setMusicRef(data);
+    let newKeyData = noteData();
+    setMusicRef(newKeyData);
     setupGuessButtons(
-      data.chordDeg,
-      data.mysteryNote.chordDegree,
+      newKeyData.chordDeg,
+      newKeyData.mysteryNote.chordDegree,
       setDegreeBtnData
     );
   }, []);
@@ -54,8 +53,8 @@ const GameContainer = () => {
     musicData.current = data;
   };
 
-  const setIsCorrectRef = data => {
-    isCorrectRef.current = data;
+  const setIsCorrectRef = isCorrect => {
+    isCorrectRef.current = isCorrect;
   };
 
   const setupScoreBoard = num => {
@@ -72,15 +71,14 @@ const GameContainer = () => {
     });
   };
 
-  const setupGuessButtons = (data, answer, setDegreeBtnData) => {
-    let degreeArr = data.map(name => ({
+  const setupGuessButtons = (chordDegreedata, answer, setDegreeBtnData) => {
+    let chordDegreeDataUpdated = chordDegreedata.map(name => ({
       name: name.degree,
       correct: answer === name.degree,
       clicked: "false",
       note: name.degreeNote
     }));
-    console.log(degreeArr);
-    setDegreeBtnData(degreeArr);
+    setDegreeBtnData(chordDegreeDataUpdated);
   };
 
   const handleCorrect = () => {
@@ -153,16 +151,16 @@ const GameContainer = () => {
     });
   };
 
-  const handleGuessClick = (data, isPlaying) => {
+  const handleGuessClick = (clickedDegreeData, isPlaying) => {
     if (isPlaying) {
       return;
     }
-    if (data.correct) {
-      handleCorrect(data);
+    if (clickedDegreeData.correct) {
+      handleCorrect(clickedDegreeData);
       setMeasure(0);
     } else {
-      handleIncorrect(data);
-      disableWrongDegreeBtn(data.name);
+      handleIncorrect(clickedDegreeData);
+      disableWrongDegreeBtn(clickedDegreeData.name);
     }
   };
 
