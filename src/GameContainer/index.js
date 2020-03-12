@@ -97,10 +97,10 @@ const GameContainer = () => {
     loadAndPlayTransport();
   };
 
-  const handleIncorrect = data => {
-    setDisplayText(`${data.name} is incorrect`);
+  const handleIncorrect = degree => {
+    setDisplayText(`${degree.name} is incorrect`);
+    loadSingleChord(degree.note);
     setupScoreBoard(0);
-    loadSingleChord(data.note);
     playTransport();
   };
 
@@ -130,9 +130,10 @@ const GameContainer = () => {
     Tone.Transport.cancel();
     setMeasure(number);
     let chord = [];
-    number !== 5
-      ? (chord = musicData.current.chords[number])
-      : (chord = [musicData.current.mysteryNote.note]);
+    chord =
+      number !== 5
+        ? musicData.current.chords[number]
+        : [musicData.current.mysteryNote.note];
     createSingleLoop(setMeasure);
     loadSingleChord(chord);
     playTransport();
@@ -142,9 +143,7 @@ const GameContainer = () => {
     setDegreeBtnData(prevState => {
       let updatedState = [...prevState];
       updatedState.map(deg => {
-        if (deg.name === name) {
-          deg.disabled = true;
-        }
+        deg.disabled = deg.name === name ? (deg.disabled = true) : deg.disabled;
         return deg;
       });
       return updatedState;
@@ -154,8 +153,7 @@ const GameContainer = () => {
   const handleGuessClick = (clickedDegreeData, isPlaying) => {
     if (isPlaying) {
       return;
-    }
-    if (clickedDegreeData.correct) {
+    } else if (clickedDegreeData.correct) {
       handleCorrect(clickedDegreeData);
       setMeasure(0);
     } else {
