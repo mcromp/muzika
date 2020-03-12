@@ -20,7 +20,7 @@ const GameContainer = () => {
   const [degreeBtnData, setDegreeBtnData] = useState([]);
   const [measure, setMeasure] = useState("off");
   const [isPlaying, setIsPlaying] = useState(true);
-  const [mysteryBlock, setMysteryBlock] = useState("???");
+  const [mysteryBlockDisplay, setMysteryBlockDisplay] = useState("???");
   const [displayText, setDisplayText] = useState(
     "Game Initiated: Click 'PLAY' hear the musical progression. Then guess a degree"
   );
@@ -50,7 +50,6 @@ const GameContainer = () => {
   }, [newKey]);
 
   const setMusicRef = data => {
-    console.log(data);
     musicData.current = data;
   };
 
@@ -86,14 +85,14 @@ const GameContainer = () => {
     setDisplayText("Correct!");
     setIsCorrectRef(true);
     loadAndPlayTransport();
-    setMysteryBlock(musicData.current.mysteryNote.chordDegree);
+    setMysteryBlockDisplay(musicData.current.mysteryNote.chordDegree);
     setupScoreBoard(1);
     newKey();
   };
 
   const playAfterCorrect = () => {
     setDisplayText("New Key, Guess a degree");
-    setMysteryBlock("???");
+    setMysteryBlockDisplay("???");
     setIsCorrectRef(false);
     loadAndPlayTransport();
   };
@@ -177,7 +176,7 @@ const GameContainer = () => {
         </UserButton>
       </div>
       <div className="musicBlockBoard">
-        <Blocks {...{ measure, handleBlockClick, mysteryBlock }} />
+        <Blocks {...{ measure, handleBlockClick, mysteryBlockDisplay }} />
       </div>
       <div className="answerBoard">
         <GuessButtons
