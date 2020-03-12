@@ -64,8 +64,8 @@ const scaleGen = (root, scaleIntervals, tones) => {
 
 const setupChordDegree = (root, chordDegreeFormula) =>
   chordDegreeFormula.map((chordDeg, i) => ({
-    degree: chordDeg,
-    degreeNote: tones[root + i + 36]
+    name: chordDeg,
+    note: tones[root + i + 36]
   }));
 
 const noteData = () => {
@@ -74,13 +74,13 @@ const noteData = () => {
   let chords = chordProgressionGen(scale, chordProgressionFormula);
   let mysteryNote = mysteryNoteGen(root);
   let chordProgression = chordProgressionFormula;
-  let chordDeg = setupChordDegree(root, chordDegreeFormula);
+  let chordDegreeData = setupChordDegree(root, chordDegreeFormula);
   return {
     scale,
     chords,
     chordProgression,
     mysteryNote,
-    chordDeg
+    chordDegreeData
   };
 };
 

@@ -35,7 +35,7 @@ const GameContainer = () => {
     let newKeyData = noteData();
     setMusicRef(newKeyData);
     setupGuessButtons(
-      newKeyData.chordDeg,
+      newKeyData.chordDegreeData,
       newKeyData.mysteryNote.chordDegree,
       setDegreeBtnData
     );
@@ -50,6 +50,7 @@ const GameContainer = () => {
   }, [newKey]);
 
   const setMusicRef = data => {
+    console.log(data);
     musicData.current = data;
   };
 
@@ -72,11 +73,11 @@ const GameContainer = () => {
   };
 
   const setupGuessButtons = (chordDegreedata, answer, setDegreeBtnData) => {
-    let chordDegreeDataUpdated = chordDegreedata.map(name => ({
-      name: name.degree,
-      correct: answer === name.degree,
+    let chordDegreeDataUpdated = chordDegreedata.map(degree => ({
+      name: degree.name,
+      correct: answer === degree.name,
       clicked: "false",
-      note: name.degreeNote
+      note: degree.note
     }));
     setDegreeBtnData(chordDegreeDataUpdated);
   };
