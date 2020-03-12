@@ -22,7 +22,7 @@ const HowToPlay = () => (
       to the progression's musical key. Play the chord progression as many times
       as necessary to internalize the scale of the key in relation to the
       mystery tone. To hear a single instance of any of the chords or the
-      mystery tone click on its corresponding box. For a new key and mystery
+      mystery tone click on its corresponding block. For a new key and mystery
       tone, select 'KEY CHANGE'. At the top right of the game board is an
       average of attempts followed by a percentage of correct.
     </p>

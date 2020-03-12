@@ -5,8 +5,7 @@ import "../App.css";
 const DISPLAY_NAMES = ["I", "IV", "V", "I", null, "???"];
 
 const BlockMusical = ({ measure, number, handleBlockClick, name }) => {
-  let classNameM = "";
-  number === 5 && name !== "???" ? (classNameM = "mysteryBlock") : "";
+  let classNameM = number === 5 && name !== "???" ? "mysteryBlock" : "";
   return (
     <div
       onClick={() => handleBlockClick(number)}
@@ -17,17 +16,19 @@ const BlockMusical = ({ measure, number, handleBlockClick, name }) => {
   );
 };
 
-const Blocks = ({ measure, handleBlockClick, questionBlock }) => {
-  return DISPLAY_NAMES.map((name, i) => {
-    name = name === "???" ? questionBlock : name;
-    return name ? (
+const Blocks = ({ measure, handleBlockClick, mysteryBlock }) =>
+  DISPLAY_NAMES.map((name, i) => {
+    name = name === "???" ? mysteryBlock : name;
+    if (!name) {
+      return null;
+    }
+    return (
       <BlockMusical
         key={i}
         number={i}
         {...{ handleBlockClick, measure, name }}
       />
-    ) : null;
+    );
   });
-};
 
 export default Blocks;
