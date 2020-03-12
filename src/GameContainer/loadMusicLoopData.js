@@ -117,7 +117,7 @@ export const loadChords = padData => {
 export const createLoop = (
   setMeasure,
   setPlaying,
-  correctRef,
+  isCorrectRef,
   playAfterCorrect
 ) => {
   let loop = new Tone.Sequence(
@@ -130,7 +130,7 @@ export const createLoop = (
         if (beat === 7) {
           setMeasure("off");
           loop.dispose();
-          correctRef.current ? playAfterCorrect() : setPlaying(false);
+          isCorrectRef.current ? playAfterCorrect() : setPlaying(false);
         }
       }, time);
     },

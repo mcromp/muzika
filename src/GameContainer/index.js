@@ -25,7 +25,7 @@ const GameContainer = () => {
     "Game Initiated: Click 'PLAY' hear the musical progression. Then guess a degree"
   );
   const musicData = useRef({});
-  const correctRef = useRef(false);
+  const isCorrectRef = useRef(false);
 
   Tone.Transport.timeSignature = [3, 4];
   Tone.Transport.bpm.value = 400;
@@ -54,8 +54,8 @@ const GameContainer = () => {
     musicData.current = data;
   };
 
-  const setCorrectRef = data => {
-    correctRef.current = data;
+  const setIsCorrectRef = data => {
+    isCorrectRef.current = data;
   };
 
   const setupScoreBoard = num => {
@@ -79,12 +79,13 @@ const GameContainer = () => {
       clicked: "false",
       note: name.degreeNote
     }));
+    console.log(degreeArr);
     setDegreeBtnData(degreeArr);
   };
 
   const handleCorrect = () => {
     setDisplayText("Correct!");
-    setCorrectRef(true);
+    setIsCorrectRef(true);
     loadAndPlayTransport();
     setMysteryBlock(musicData.current.mysteryNote.chordDegree);
     setupScoreBoard(1);
@@ -94,7 +95,7 @@ const GameContainer = () => {
   const playAfterCorrect = () => {
     setDisplayText("New Key, Guess a degree");
     setMysteryBlock("???");
-    setCorrectRef(false);
+    setIsCorrectRef(false);
     loadAndPlayTransport();
   };
 
@@ -114,7 +115,7 @@ const GameContainer = () => {
   const loadAndPlayTransport = () => {
     Tone.Transport.cancel();
     setMeasure(0);
-    createLoop(setMeasure, setIsPlaying, correctRef, playAfterCorrect);
+    createLoop(setMeasure, setIsPlaying, isCorrectRef, playAfterCorrect);
     loadChords(musicData.current);
     playTransport();
   };
