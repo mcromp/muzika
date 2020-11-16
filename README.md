@@ -17,4 +17,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Motivation
 
-This app was developed out of my love of both programming and music.
+This app was developed out of my love of both programming and music. :)
