@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/muzika/static/css/main.d675a76b.chunk.css",
-    "main.js": "/muzika/static/js/main.46bd7ab4.chunk.js",
-    "main.js.map": "/muzika/static/js/main.46bd7ab4.chunk.js.map",
+    "main.js": "/muzika/static/js/main.4d816ffb.chunk.js",
+    "main.js.map": "/muzika/static/js/main.4d816ffb.chunk.js.map",
     "runtime-main.js": "/muzika/static/js/runtime-main.6f97bee3.js",
     "runtime-main.js.map": "/muzika/static/js/runtime-main.6f97bee3.js.map",
     "static/js/2.83b4c801.chunk.js": "/muzika/static/js/2.83b4c801.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.6f97bee3.js",
     "static/js/2.83b4c801.chunk.js",
     "static/css/main.d675a76b.chunk.css",
-    "static/js/main.46bd7ab4.chunk.js"
+    "static/js/main.4d816ffb.chunk.js"
   ]
 }
