@@ -10,7 +10,7 @@ const About = () => (
   <br />
 
   <p>
-   Find me at <a href="https://www.linkedin.com/in/mcromp/"> Linkedin</a>
+   Find me at <a href="https://www.linkedin.com/in/mcromp/"> Linkedin </a>
    aswell
   </p>
  </div>
