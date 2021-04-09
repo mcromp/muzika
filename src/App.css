@@ -95,7 +95,8 @@ body {
 
 .statusBoard > span {
  color: var(--text-color-a);
- font:  calc(1vw + .5rem) "Open Sans", serif;
+ font-family:  "Open Sans", serif;
+ font-size: calc(1vw + .5rem);
 }
 .scoreBoard {
  justify-self: flex-end;
@@ -105,7 +106,8 @@ body {
 
 .scoreBoard > span {
  padding: calc(1vw + .1rem);
- font: calc(1vw + .4rem) "Open Sans", serif;
+ font-family:  "Open Sans", serif;
+ font-size: calc(1vw + .4rem);
  border: 1px solid var(--text-color-a);
  border-radius: 4%;
 }
@@ -176,7 +178,8 @@ body {
 }
 .musicBlock > span,
 .musicBlockActive > span {
- font: bold calc(1vw + 1rem) serif;
+ font-family: serif;
+ font-size: calc(1vw + 1rem);
 }
 
 .mysteryBlock {
@@ -198,7 +201,9 @@ body {
  background-color: var(--highlight);
  color: var(--bg-sub);
  border-radius: 4%;
- font: bold calc(1vw + .8rem) "Open Sans", serif;
+ font-family: "Open Sans", serif;
+ font-weight:bold;
+ font-size: calc(1vw + .8rem) ;
  cursor: pointer;
 }
 
@@ -215,6 +220,7 @@ body {
 .textContainer > h3 {
  text-align: left;
  font: bold 20px "Open Sans", serif;
+
 }
 
 .textContainer > p {
