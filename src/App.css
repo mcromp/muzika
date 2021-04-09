@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Coiny|Open+Sans&display=swap");
 
 :root {
- --bg-sub: #fff8f0;
+ --bg-sub: #ffffff;
  --highlight: #6a00f5;
  --color-highlights: #555;
  --color-highlights-bright: #f4acb7;
@@ -14,7 +14,7 @@
 }
 body {
  height: 100%;
- background-color: var(--bg-sub);
+ background-color: rgb(255, 255, 255);
 }
 .app {
  display: flex;
@@ -71,6 +71,7 @@ body {
  width: 90%;
  height: 70%;
  background: #eee;
+
  box-shadow: var(--box-shadow);
 }
 
@@ -94,7 +95,7 @@ body {
 
 .statusBoard > span {
  color: var(--text-color-a);
- font: 18px "Open Sans", serif;
+ font:  calc(1vw + .5rem) "Open Sans", serif;
 }
 .scoreBoard {
  justify-self: flex-end;
@@ -103,8 +104,8 @@ body {
 }
 
 .scoreBoard > span {
- padding: 10px;
- font: 18px "Open Sans", serif;
+ padding: calc(1vw + .1rem);
+ font: calc(1vw + .4rem) "Open Sans", serif;
  border: 1px solid var(--text-color-a);
  border-radius: 4%;
 }
@@ -113,7 +114,7 @@ body {
 
 .userBtns {
  display: block;
- margin: 30px 0;
+ margin: calc(1vw + .1rem) 0;
 }
 
 .userBtns > button {
@@ -123,7 +124,7 @@ body {
  padding: 15px 50px;
  margin: 0 20px;
  border-radius: 40px;
- font-size: 25px;
+ font-size: calc(1vw + .5rem);
  font-weight: 600;
  cursor: pointer;
 }
@@ -145,12 +146,11 @@ body {
 
 .musicBlock,
 .musicBlockActive {
- margin: 30px 0;
+ margin: calc(1vw + .1rem) calc(.5vw + .02rem);
  background: var(--bg-sub);
  border-radius: 10px;
- width: 13%;
- height: 75px;
- max-width: 100px;
+ width: 10%;
+ height: calc(1vh + 3rem);
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -158,6 +158,7 @@ body {
 
 .musicBlock {
  color: var(--text-color-a);
+ font-size: 2px;
  border: 15px solid var(--bg-sub);
  box-shadow: var(--box-shadow);
 }
@@ -175,7 +176,7 @@ body {
 }
 .musicBlock > span,
 .musicBlockActive > span {
- font: bold 30px serif;
+ font: bold calc(1vw + 1rem) serif;
 }
 
 .mysteryBlock {
@@ -187,6 +188,7 @@ body {
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
+ margin: 10px 0 0 0 ;
 }
 
 .answerBoard > button {
@@ -196,7 +198,7 @@ body {
  background-color: var(--highlight);
  color: var(--bg-sub);
  border-radius: 4%;
- font: bold 25px "Open Sans", serif;
+ font: bold calc(1vw + .8rem) "Open Sans", serif;
  cursor: pointer;
 }
 
@@ -245,31 +247,28 @@ body {
   margin: 0;
   padding: 0;
  }
- .scoreBoard {
-  margin: 10px;
- }
+
  .userBtns {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
- }
- .userBtns > button {
-  font-size: 25px;
-  padding: 5px 20px;
-  height: 80px;
-  width: 50%;
-  font-weight: 300;
- }
+ margin: 0 0 10px 0;
+
+  }
+
+  .userBtns > button {
+  font-size: calc(1vw + .5rem);
+  padding: .6rem 1.2rem;
+  }
+
  .musicBlock,
  .musicBlockActive {
-  margin: 10px 4px;
   background: var(--bg-sub);
-  border-radius: 10px;
-  width: 40px;
   height: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
  }
+
 }
